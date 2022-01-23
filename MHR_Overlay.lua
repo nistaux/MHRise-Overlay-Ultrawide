@@ -420,7 +420,7 @@ function monster_health()
 	end
 
 	local total_monsters = enemy_manager:call("getBossEnemyCount");
-    for i = 0, total_monsters do
+    for i = 0, total_monsters-1 do
         local enemy = enemy_manager:call("getBossEnemy", i);
         if not enemy then
             break;
