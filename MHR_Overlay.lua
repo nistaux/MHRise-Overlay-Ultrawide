@@ -326,7 +326,7 @@ function calculate_screen_coordinates(position, total_monsters)
 	if position.anchor == "bottom_center" then
 		local screen_center = screen_width/2
 		local total_spacing = total_monsters - 1
-		local screen_x = (screen_center - ((monster_UI.health_bar.width/(total_monsters/(total_monsters*0.5)))+(monster_UI.spacing/(total_spacing*0.5))+position.x))
+		local screen_x = (screen_center - ((monster_UI.health_bar.width*(total_monsters*0.5))+(monster_UI.spacing*(total_spacing*0.5))+position.x))
 		return {x = screen_x, y = screen_height - (position.y + monster_UI.health_bar.height)};
 	end
 
