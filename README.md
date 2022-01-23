@@ -17,3 +17,5 @@ the for loop to only loop as many times as there are monsters.
 ```lua
 local total_monsters = enemy_manager:call("getBossEnemyCount");
 ```
+
+![alt text](https://imgur.com/vOZEbBv)
