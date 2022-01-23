@@ -318,35 +318,15 @@ function calculate_screen_coordinates(position, total_monsters)
 
 	if position.anchor == "top_center" then
 		local screen_center = screen_width/2
-		local spacing = monster_UI.spacing
-		local screen_x = position.x
-
-		if total_monsters == 1 then
-			screen_x = (screen_center - (monster_UI.health_bar.width/2)+position.x)
-		elseif total_monsters == 2 then
-			screen_x = (screen_center - (monster_UI.health_bar.width + (spacing/2))+ position.x)
-		elseif total_monsters == 3 then
-			screen_x = (screen_center - ((monster_UI.health_bar.width*1.5) + spacing)+ position.x)
-		elseif total_monsters == 4 then
-			screen_x = (screen_center - ((monster_UI.health_bar.width*2) + (spacing*1.5)) + position.x)
-		end
+		local total_spacing = total_monsters - 1
+		local screen_x = (screen_center - ((monster_UI.health_bar.width*(total_monsters*0.5))+(monster_UI.spacing*(total_spacing*0.5))+position.x))
 		return {x = screen_x, y = position.y};
 	end
 
 	if position.anchor == "bottom_center" then
 		local screen_center = screen_width/2
-		local spacing = monster_UI.spacing
-		local screen_x = position.x
-
-		if total_monsters == 1 then
-			screen_x = (screen_center - (monster_UI.health_bar.width/2)+position.x)
-		elseif total_monsters == 2 then
-			screen_x = (screen_center - (monster_UI.health_bar.width + (spacing/2))+ position.x)
-		elseif total_monsters == 3 then
-			screen_x = (screen_center - ((monster_UI.health_bar.width*1.5) + spacing)+ position.x)
-		elseif total_monsters == 4 then
-			screen_x = (screen_center - ((monster_UI.health_bar.width*2) + (spacing*1.5)) + position.x)
-		end
+		local total_spacing = total_monsters - 1
+		local screen_x = (screen_center - ((monster_UI.health_bar.width/(total_monsters/(total_monsters*0.5)))+(monster_UI.spacing/(total_spacing*0.5))+position.x))
 		return {x = screen_x, y = screen_height - (position.y + monster_UI.health_bar.height)};
 	end
 
